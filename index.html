@@ -1,0 +1,799 @@
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+      <script>
+        // Global Variables
+        tvOn = false;
+        </script>
+      <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.min.js"></script>
+      <script src="https://unpkg.com/aframe-environment-component@1.3.3/dist/aframe-environment-component.min.js"></script>
+      <script
+        src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+      <script
+        src="https://cdn.rawgit.com/IdeaSpaceVR/aframe-particle-system/v2.3.0/dist/aframe-particle-system.min.js"></script>
+      <title>My WebVR House</title>
+      
+   
+  </head>
+ 
+  <body>
+    <script type="text/javascript">
+				
+      function tvClick()
+      {
+        var tv = document.querySelector("#tvScreen");
+        var text = document.querySelector("#tvText");
+
+        if(!tvOn)
+        {
+          text.setAttribute('visible', 'false');
+          tv.setAttribute('material', 'color', 'white');
+          tvOn = true;
+        }
+        else
+        {
+          tv.setAttribute('material', 'color', 'black');
+          tvOn = false;
+        }
+      }
+    </script>
+    <a-scene  environment="preset: starry; ground: flat; groundColor: #656c65; groundTexture: none; horizonColor: #96a98a; skyColor: #b0d8ff; lightPosition: 1 50 -2; fog: 0.5w; fogColor: #b0d8ff; shadow: true; dressingColor: #004d00">
+      
+
+      <!---Player Camera--->
+      <a-camera id="cam" position="-0.94025 6 68.17893" camera="" rotation="-18.907607239317173 -2.062648062471569 0" 
+      look-controls="" wasd-controls="" data-aframe-inspector-original-camera="">  <a-cursor></a-cursor> </a-camera>></a-camera>
+      
+
+    
+      
+      <!-- Floor -->
+      <a-box static-body="" geometry="depth: 1; height: 50.890; width:120" position="-20 -0.29 5" rotation="90 0 0" material="roughness: 1;" src=" ./img/gach.jpg" scale="1 1 1" repeat="24 10"></a-box>
+      <a-plane geometry="primitive: box" position="-52.7 14.02 5" rotation="-90 0 0" width="55" height="50.890" shadow="" material="side:double"  color="white"></a-plane>
+      
+
+      <!-- Walls  -->
+      <a-plane geometry="primitive: box" position="-81.9 6.5 5" rotation="0 90 90" depth="0.1" width="14" height="50.66" shadow="" material="side:double"  color="pink"></a-plane> 
+      <a-box static-body="" geometry="depth: 0.1; height: 14; width: 50.66" position="-80 6.5 5" rotation="0 90 0" material="roughness: 1;" color="lightslategray" scale="1 1 1" repeat="10 1"></a-box>
+      <a-box static-body="" geometry="depth: 0.1; height: 14; width: 90.95" position="-34.5 6.5 29.697" material="roughness: 1;" color="lightslategray" scale="1 1 1" repeat="18 1"></a-box>
+      <a-plane  geometry="primitive: box" position="-34.7 6.5 30.220" rotation="0 0 90" depth="0.7" width="14" height="90.95" shadow="" material="side:double"  color="pink"></a-plane>
+      <a-plane  geometry="primitive: box" position="34.76 6.5 30.220" rotation="0 0 90" depth="0.1" width="14" height="10" shadow="" material="side:double"  color="pink"></a-plane>
+      <a-box static-body="" geometry="depth: 0.1; height: 14; width: 10" position="34.76 6.5 29.551" material="roughness: 1;" color="lightslategray" scale="1 1 1" repeat="2 1"></a-box>
+      <a-plane  geometry="primitive: box" position="20.41 12.46 30.220" rotation="0 0 90" depth="0.1" width="2" height="18.820" shadow="" material="side:double"  color="pink"></a-plane>
+      <a-box static-body="" geometry="depth: 0.1; height: 2.25; width: 19.020" position="20.5 12.46 29.697" material="roughness: 1;" color="lightslategray"scale="1 1 1" repeat="3.9 1"></a-box>
+      <a-plane geometry="primitive: box" position="-20.6 6.5 -21.03" rotation="0 0 90" depth="0.100" width="14" height="120" shadow="" material="side:double"  color="pink"></a-plane>
+      <a-box static-body="" geometry="depth: 0.1; height: 14; width: 120" position="-20 6.5 -19.78" material="roughness: 1;" color="lightslategray" scale="1 1 1" repeat="24 1"></a-box>
+
+      <a-plane geometry="primitive: box" position="40.2 13.27 4.811" rotation="0 90 90" depth="0.1" width="29" height="50.850" shadow="" material="side:double"  color="pink"></a-plane>
+      <a-box static-body="" geometry="depth: 0.1; height: 29; width: 50.850" position="39.46 13.27 4.811" rotation="0 90 0" material="roughness: 1;" color="lightslategray" scale="1 1 1" repeat="11 1"></a-box>
+      <a-plane  geometry="primitive: box" position="7.301 20.69 30.546" rotation="0 0 90" depth="0.7" width="14.42" height="64.66" shadow="" material="side:double"  color="pink"></a-plane>
+      <a-box static-body="" geometry="depth: 0.1; height: 14.42; width: 64.66" position="7.301 20.69 29.551" material="roughness: 1;" color="lightslategray" scale="1 1 1" repeat="13 1"></a-box>
+      <a-plane  geometry="primitive: box" position="7.301 20.69 -21.03" rotation="0 0 90" depth="0.1" width="14.42" height="64.66" shadow="" material="side:double"  color="pink"></a-plane>
+      <a-box static-body="" geometry="depth: 0.1; height: 14.42; width: 64.66" position="7.301 20.69 -19.78" material="roughness: 1;" color="lightslategray" scale="1 1 1" repeat="13 1"></a-box>
+      <a-plane  geometry="primitive: box" position="-25.5 20.69 1.885" rotation="0 90 90" depth="0.1" width="14.42" height="45" shadow="" material="side:double"  color="pink"></a-plane>
+      <a-box static-body="" geometry="depth: 0.1; height: 14.42; width: 45" position="-24.8 20.69 1.885" rotation="0 90 0" material="roughness: 1;" color="lightslategray" scale="1 1 1" repeat="9 1"></a-box>
+
+      <!-- Walls room -->
+      <a-box static-body="" geometry="depth: 1; height: 14; width: 30" position="-64.6 6.5 -0.55" material="roughness: 1;" src=" ./img/go.jpg" scale="1 1 1" repeat="6 1"></a-box>
+      <a-box static-body="" geometry="depth: 1; height: 14; width: 23" position="-49.8 6.5 18.12" rotation="0 90 0" material="roughness: 1;" src=" ./img/go.jpg" scale="1 1 1" repeat="4.6 1"></a-box>
+
+
+      <!-- roof -->
+      <a-plane geometry="primitive: box" position="9.34 28.31 5.332" rotation="90 0 90" depth="1" width="60" height="70" shadow="" material="side:double"  color="white"></a-plane> 
+      <a-plane geometry="primitive: box" position="-28.6 28.31 11.232" rotation="90 0 90" depth="1" width="48" height="6" shadow="" material="side:double"  color="white"></a-plane> 
+
+
+
+
+      <!-- Door  -->
+      <a-box position="29.66 5.86 30.26" width="0.38" height="10.5" depth="0.38" color="black"></a-box>
+      <a-box position="11.14 5.86 30.26" width="0.38" height="10.5" depth="0.38" color="black"></a-box>
+      <a-box position="16.12 5.86 30.26" width="0.38" height="10.5" depth="0.38" color="black"></a-box>
+      <a-box position="24.78 5.86 30.26" width="0.38" height="10.5" depth="0.38" color="black"></a-box>
+      <a-box position="20.36 11.22 30.26" rotation="0 0 90" width="0.38" height="18.82" depth="0.38" color="black"></a-box>
+      <a-box position="13.59 0.391 30.26" rotation="0 0 90" width="0.38" height="5.37" depth="0.38" color="black"></a-box>
+      
+      <a-box position="27.21 0.391 30.26" rotation="0 0 90" width="0.38" height="5.37" depth="0.38" color="black"></a-box>
+      
+      <a-box static-body="" geometry="depth:0.2; height: 10.5; width:4.49" position="13.63 5.767 30.15"  material="roughness: 1;" src=" ./img/cua2.png"  ></a-box>
+      <a-box static-body="" geometry="depth:0.2; height: 10.5; width:4.49" position="27.24 5.803 30.15"  material="roughness: 1;" src=" ./img/cua2.png" ></a-box>
+      
+
+      <!-- Table -->
+      <a-entity position="-14 0 -8">
+      <!-- Top -->
+      <a-box position="-18 4.112 24.06" width="3.5" height="0.5" depth="10.9" src=" ./img/go1.jpg" ></a-box>
+      <!-- Legs -->
+      <a-box position="-16.4 2.057 28.88" width="0.5" height="4" depth="0.5" src=" ./img/go1.jpg" ></a-box>
+      <a-box position="-16.4 2.057 19.29" width="0.5" height="4" depth="0.5" src=" ./img/go1.jpg"></a-box>
+      <a-box position="-19.5 2.057 19.29" width="0.5" height="4" depth="0.5" src=" ./img/go1.jpg"></a-box>
+      <a-box position="-19.5 2.057 28.88" width="0.5" height="4" depth="0.5" src=" ./img/go1.jpg"></a-box>    
+      </a-entity>
+
+      <!-- Chair -->
+      <a-entity position="-14 0 -8">
+      <!-- Top -->
+      <a-box position="-26 2.53 27.4" width="3" height="0.5" depth="3" src=" ./img/go1.jpg"></a-box>
+      <a-box position="-27.2 4.542 27.45" width="0.5" height="1.5" depth="3" src=" ./img/go1.jpg"></a-box>
+      <!-- Legs -->
+      <a-box position="-24.9 1.128 26.18" width="0.5" height="3" depth="0.5" src=" ./img/go1.jpg"></a-box>
+      <a-box position="-27.1 2.296 26.18" width="0.5" height="6" depth="0.5" src=" ./img/go1.jpg"></a-box>
+      <a-box position="-24.7 1.128 28.65" width="0.5" height="3" depth="0.5" src=" ./img/go1.jpg"></a-box>
+      <a-box position="-27.2 2.296 28.59" width="0.5" height="6" depth="0.5" src=" ./img/go1.jpg"></a-box>    
+      </a-entity>
+
+      <a-entity position="-14 0 -8">
+      <!-- Top -->
+      <a-box position="-26 2.53 21.67" width="3" height="0.5" depth="3" src=" ./img/go1.jpg" ></a-box>
+      <a-box position="-27.2 4.542 21.45" width="0.5" height="1.5" depth="3" src=" ./img/go1.jpg"></a-box>
+      <!-- Legs -->
+      <a-box position="-24.9 1.128 20.45" width="0.5" height="3" depth="0.5" src=" ./img/go1.jpg"></a-box>
+      <a-box position="-27.1 2.296 20.18" width="0.5" height="6" depth="0.5" src=" ./img/go1.jpg"></a-box>
+      <a-box position="-24.7 1.128 22.95" width="0.5" height="3" depth="0.5" src=" ./img/go1.jpg"></a-box>
+      <a-box position="-27.2 2.296 23.18" width="0.5" height="6" depth="0.5" src=" ./img/go1.jpg"></a-box>    
+      </a-entity>
+
+      <!-- thanh chan -->
+      <a-entity position="-14 0 -8">
+      <a-box position="-2.63 6.086 19.29" width="3" height="14" depth="0.5" src=" ./img/go.jpg"></a-box>
+      <a-box position="-2.63 6.086 21.29" width="3" height="14" depth="0.5" src=" ./img/go.jpg"></a-box>
+      <a-box position="-2.63 6.086 23.29" width="3" height="14" depth="0.5" src=" ./img/go.jpg"></a-box>
+      <a-box position="-2.63 6.086 25.29" width="3" height="14" depth="0.5" src=" ./img/go.jpg"></a-box>
+      <a-box position="-2.63 6.086 27.29" width="3" height="14" depth="0.5" src=" ./img/go.jpg"></a-box>
+      <a-box position="-2.63 6.086 29.29" width="3" height="14" depth="0.5" src=" ./img/go.jpg"></a-box>
+      <a-box position="-2.63 6.086 31.29" width="3" height="14" depth="0.5" src=" ./img/go.jpg"></a-box>
+      <a-box position="-2.63 6.086 33.29" width="3" height="14" depth="0.5" src=" ./img/go.jpg"></a-box>
+      <a-box position="-2.63 6.086 35.29" width="3" height="14" depth="0.5" src=" ./img/go.jpg"></a-box>
+      <a-box position="-2.63 6.086 37.29" width="3" height="14" depth="0.5" src=" ./img/go.jpg"></a-box>
+
+      <a-box position="-2.63 13.25 28.42" rotation="90 0 0 " width="3" height="19" depth="0.5" src=" ./img/go.jpg"></a-box>
+
+      <!-- cau thang -->
+      <a-box position="-5.46 6.823 27.88" rotation="90 0 0 " width="1" height="19" depth="14" color="pink" material="opacity: 0.5"></a-box>
+      <a-box position="-8.25 2 20.75" rotation="90 0 0 " width="5" height="2" depth="0.5" color="while"></a-box>
+      <a-box position="-8.25 4 22.75" rotation="90 0 0 " width="5" height="2" depth="0.5" color="while"></a-box>
+      <a-box position="-8.25 6 24.75" rotation="90 0 0 " width="5" height="2" depth="0.5" color="while"></a-box>
+      <a-box position="-8.25 8 26.75" rotation="90 0 0 " width="5" height="2" depth="0.5" color="while"></a-box>
+      <a-box position="-8.25 10 28.75" rotation="90 0 0 " width="5" height="2" depth="0.5" color="while"></a-box>
+      <a-box position="-8.25 12 30.75" rotation="90 0 0 " width="5" height="2" depth="0.5" color="while"></a-box>
+
+
+      <a-box position="-8.25 14 34.75" rotation="90 0 0 " width="5" height="5.39" depth="0.5" color="while"></a-box>
+
+      <!--tang 2-->
+      <a-box position="14.14 13.59 41.46" rotation="0 0 90" width="0.5" height="50" depth="7" color="white" ></a-box>
+      <!-- door -->
+      <a-box position="-11.6 21.15 35.24" rotation="90 0 0 " width="0.5" height="5.440" depth="13.540" color="pink" material="opacity: 0.5"></a-box>
+      <!-- glass -->
+      <a-box position="-38.7 17.24 38.27" rotation="90 0 90 " width="0.5" height="55" depth="7" color="white" material="opacity: 0.5"></a-box>
+      <a-box position="-38.7 17.24 -12.2" rotation="90 0 90 " width="0.5" height="55" depth="7" color="white" material="opacity: 0.5"></a-box>
+      <a-box position="-66.5 17.24 12.91" rotation="90 0 0 " width="0.5" height="50" depth="7" color="white" material="opacity: 0.5"></a-box>
+      <a-box position="-8.36 20.26 38.10" rotation="0 0 90" epth="0.1" width="14.42" height="6" color="white" material="opacity: 0.5"></a-box>
+      <!-- lan can -->
+      <a-box position=" -10.9 17.12 38.57" width="0.38" height="7.88" depth="0.38" color="black"></a-box>
+      <a-box position=" -66 17.29 38.12" width="0.38" height="7.88" depth="0.38" color="black"></a-box>
+      <a-box position=" -66 17.47 -12.2" width="0.38" height="7.88" depth="0.38" color="black"></a-box>
+      <a-box position=" -12 17.39 -12.2" width="0.38" height="7.88" depth="0.38" color="black"></a-box>
+
+      <a-box position=" -10.6 16.33 44.73" width="0.38" height="5" depth="0.38" color="black"></a-box>
+      <a-box position=" 38.9 16.33 44.73" width="0.38" height="5" depth="0.38" color="black"></a-box>
+      <a-box position=" 38.9 16.33 38.73" width="0.38" height="5" depth="0.38" color="black"></a-box>
+      <a-box position=" 14.13 18.7 44.72 " rotation="90 0 90"  width="0.38" height="49.980" depth="0.38" color="black"></a-box>
+      <a-box position=" 38.9 18.71 41.59" rotation="90 0 0" width="0.38" height="6.07" depth="0.38" color="black"></a-box>
+      <a-box position=" -10.7 18.71 41.59" rotation="90 0 0" width="0.38" height="6.07" depth="0.38" color="black"></a-box>
+      <a-box position="14.14 16.15 44.67" rotation="90 0 90 " width="0.5" height="49" depth="5" color="white" material="opacity: 0.5"></a-box>
+      <a-box position="-10.5 16.08 41.31" rotation="90 0 0 " width="0.5" height="5" depth="5" color="white" material="opacity: 0.5"></a-box>
+      <a-box position="38.86 16.08 41.31" rotation="90 0 0 " width="0.5" height="5" depth="5" color="white" material="opacity: 0.5"></a-box>
+
+
+      <a-box position=" -66 20.81 13.22 " rotation="0 90 90"  width="0.38" height="50" depth="0.38" color="black"></a-box>
+      <a-box position=" -38.4 20.82 -12.2 " rotation="90 0 90"  width="0.38" height="55.370" depth="0.38" color="black"></a-box>
+      <a-box position=" -38.7 20.92 38.28 " rotation="90 0 90"  width="0.38" height="55.370" depth="0.38" color="black"></a-box>
+      <!--poor-->
+      <a-box position=" -64.8 17.54 9.433 " rotation="0 90 90"  width="5" height="40" depth="1" color="while"></a-box>
+      <a-box position=" -23.1 17.54 9.433 " rotation="0 90 90"  width="5" height="40" depth="1" color="while"></a-box>
+      <a-box position=" -44.1 17.54 -11.27 " rotation="0 0 90"  width="5" height="43" depth="1" color="while"></a-box>
+      <a-box position=" -44.1 17.54 30.015 " rotation="0 0 90"  width="5" height="43" depth="1" color="while"></a-box>
+
+      <a-box position=" -44.2 15.37 9.433 " rotation="0 90 90"  width="0.5" height="40" depth="40" color="#00CCFF"></a-box>
+      <a-box position=" -25.1 20.29 24.691 " rotation="90 90 0"  width="5" height="5" depth="0.2" color="while"></a-box>
+
+      <a-box position=" -21.9 16.84 25.161 " rotation="0 90 90"  width="4" height="5" depth="1" color="while"></a-box>
+      <a-box position=" -20.9 16.36 25.161 " rotation="0 90 90"  width="3" height="5" depth="1" color="while"></a-box>
+      <a-box position=" -19.9 15.84 25.161 " rotation="0 90 90"  width="2" height="5" depth="1" color="while"></a-box>
+
+      <a-box position=" -27.3 21.88 27.021" width="0.38" height="3" depth="0.38" color="black"></a-box>
+      <a-box position=" -27.3 21.88 22.417" width="0.38" height="3" depth="0.38" color="black"></a-box>
+      <a-box position=" -23 21.88 22.417" width="0.38" height="3" depth="0.38" color="black"></a-box>
+      <a-box position=" -23 21.88 27.021" width="0.38" height="3" depth="0.38" color="black"></a-box>
+
+      <a-box position=" -25.2 23.54 26.996" rotation="90 90 0 " width="0.38"  height="5" depth="0.38" color="black"></a-box>
+      <a-box position=" -25.2 23.54 22.417" rotation="90 90 0 " width="0.38"  height="5" depth="0.38" color="black"></a-box>
+
+      <a-box static-body="" geometry="depth: 3; height: 40; width: 40" position="-44.2 18.05 9.407" rotation="90 0 90" material="roughness: 1;" src=" ./vid/vidnuoc.mp4" ></a-box>
+
+      <!--fashion-->
+      <a-box position="42.85 6.5 8.788" rotation="0 90 90" width="14" height="0.2" depth="20" color="snow" material="opacity: 0.5"></a-box>
+      <a-box position="32.7 6.5 -5.6" rotation="90 0 90" width="12" height="0.2" depth="14" color="snow" material="opacity: 0.5"></a-box>
+
+      </a-entity>
+      <!-- kitchen  -->
+      <a-box static-body="" geometry="depth: 0.5; height: 5; width:12" position="-76.8 4.25 -13.44" rotation="90 90 0" material="roughness: 1;" src=" ./img/gach.jpg" repeat="2 1"></a-box>
+      <a-box static-body="" geometry="depth: 3; height: 3; width:11" position="-57.9 2.011 -10.92"  material="roughness: 1;" src=" ./img/gachb.png" ></a-box>
+      <a-box static-body="" geometry="depth: 5; height: 0.7; width:12" position="-57.9 3.857 -10.92"  material="roughness: 1;" src=" ./img/gachb.png" ></a-box>
+      <a-box static-body="" geometry="depth: 4; height: 5; width:12" position="-76.8 1.943 -13.44" rotation="90 90 0" material="roughness: 1;" src=" ./img/tu2.png" ></a-box>
+      <a-box static-body="" geometry="depth: 4; height: 5; width:12" position="-76.8 9.943 -13.44" rotation="90 90 0" material="roughness: 1;" src=" ./img/tu1.png" ></a-box>
+      <a-box static-body="" geometry="depth: 10; height: 5; width:5" position="-76.7 5.286 -4.073" rotation="90 90 0" material="roughness: 1;" src=" ./img/tulanh.png" ></a-box>
+      <a-entity id="flwvase" gltf-model="./model/flwvase/scene.gltf" position="-76.5 4.611 -8.473"  scale="0.25 0.25 0.25"></a-entity>
+      <a-entity id="FruitBowl" gltf-model="./model/FruitBowl/scene.gltf" position="-54.9 4.322 -11.27"  scale="3 3 3"></a-entity>
+
+      <!-- Bedside Cabinet -->
+      <a-entity position="-13 0 -8"></a-entity>
+      <!-- Top -->
+      <a-box position="-76.9 -1.25 14.25" width="4" height="0.2" depth="5" src=" ./img/go1.jpg" scale="1 1 1"></a-box>
+      <a-box position="-76.9 1.9 14.25" width="4" height="0.2" depth="5" src=" ./img/go1.jpg" scale="1 1 1"></a-box>
+      <a-box position="-76.9 3.68 14.25" width="4" height="0.2" depth="5" src=" ./img/go1.jpg" scale="1 1 1"></a-box>
+      <!-- m -->
+      <a-box position="-78.7 2.069 14.21" width="0.25" height="3.35" depth="5" src=" ./img/go1.jpg" scale="1 1 1"></a-box>
+      <!-- Legs -->
+      <a-box position="-78.8 1.975 11.818" width="0.38" height="3.49" depth="0.38" color="black"></a-box>
+      <a-box position="-78.8 1.975 16.7" width="0.38" height="3.49" depth="0.38" color="black"></a-box>
+      <a-box position="-75 1.975 11.875" width="0.38" height="3.49" depth="0.38" color="black"></a-box>
+      <a-box position="-75 1.975 16.55" width="0.38" height="3.49" depth="0.38" color="black"></a-box>
+
+      <!-- tủ -->
+      <!-- Top -->
+      <a-box position="-71.7 1 2.727" width="8.20" height="0.2" depth="4" src=" ./img/go1.jpg" scale="1 1 1" repeat="24 10"></a-box>
+      <a-box position="-71.7 9.259 2.727" width="8.20" height="0.2" depth="4" src=" ./img/go1.jpg" scale="1 1 1" repeat="24 10"></a-box>
+      <!--thanh-->
+      <a-box position="-76.1 5.16 2.89" width="0.25" height="8.45" depth="4" src=" ./img/go1.jpg" scale="1 1 1" ></a-box>
+      <a-box position="-73.7 5.16 4.772" rotation="0 90 0" width="0.25" height="8.45" depth="4" src=" ./img/go1.jpg" scale="1 1 1" ></a-box>
+      <a-box position="-72 5.16 0.946" rotation="0 90 0" width="0.25" height="8.45" depth="8.2" src=" ./img/go1.jpg" scale="1 1 1" ></a-box>
+      <a-box position="-68.1 5.16 2.89" width="0.25" height="8.45" depth="4" src=" ./img/go1.jpg" scale="1 1 1" ></a-box>
+      <!-- Legs -->
+      <a-box position="-76 4.37 0.923" width="0.38" height="10" depth="0.38" color="black"></a-box>
+      <a-box position="-76 4.37 4.799" width="0.38" height="10" depth="0.38" color="black"></a-box>
+      <a-box position="-68 4.37 0.923" width="0.38" height="10" depth="0.38" color="black"></a-box>
+      <a-box position="-68 4.37 4.799" width="0.38" height="10" depth="0.38" color="black"></a-box>
+      <!-- tủ tường -->
+      <a-box position="-52.9 4.75 16.677" width="3" height="0.2" depth="7" src=" ./img/go1.jpg" scale="1 1 1"></a-box>
+      <a-box position="-52.9 5.934 16.677" width="3" height="0.2" depth="5" src=" ./img/go1.jpg" scale="1 1 1"></a-box>
+      <a-box position="-52.9 7.236 16.677" width="3" height="0.2" depth="3" src=" ./img/go1.jpg" scale="1 1 1"></a-box>
+
+      <!-- Television shelf -->
+      <!-- Top -->
+      <a-box position="37.03 0.812 12.78" rotation="90 0 90" width="6" height="0.1" depth="1" color="khaki" material="opacity: 0.5"></a-box>
+      <a-box position="37.23 0.864 6.86" rotation="90 0 90" width="6" height="0.1" depth="1.23" color="khaki" ></a-box>
+      <a-box position="37.23 0.864 18.82" rotation="90 0 90" width="6" height="0.1" depth="1.23" color="khaki" ></a-box>
+      <a-box position="38.11 0.194 12.83"  width="1.88" height="0.1" depth="18" color="khaki" ></a-box>
+      <a-box position="38.11 1.484 12.83"  width="1.88" height="0.2" depth="18" color="khaki" ></a-box>
+      <a-box position="38.11 0.869 21.72" rotation="0 90 90" width="1.23" height="0.2" depth="1.88" color="khaki" ></a-box>
+      <a-box position="38.11 0.869 3.72" rotation="0 90 90" width="1.23" height="0.2" depth="1.88" color="khaki" ></a-box>
+
+
+      <a-box position="37.08 1.388 12.84" width="0.1" height="0.2" depth="6" color="black"></a-box>
+      <a-box position="37.08 0.279 12.84" width="0.1" height="0.2" depth="6" color="black"></a-box>
+      <a-box position="37.16 0.849 9.899" rotation="90 0 90" width="0.1" height="0.1" depth="1" color="black"></a-box>
+      <a-box position="37.08 0.849 15.78" rotation="90 0 90" width="0.1" height="0.1" depth="1" color="black"></a-box>
+
+
+      <!--  Table un -->
+      <a-entity position="22 0 12">
+      <a-cylinder position="0 -0.18 0" radius="0.8" height="0.26" color="#0f0f0f"></a-cylinder>
+      <a-cylinder position="0 1.125 0" radius="0.25" height="2.25"></a-cylinder>
+      <a-cylinder position="0 1.797 0" radius="2" height="0.15" color="#0f0f0f" material="opacity: 0.5"></a-cylinder>
+
+      <a-cylinder position="0 0.3 3.4" radius="2.5" height="1.5" color="khaki"></a-cylinder>
+      <a-cylinder position="0 1.071 3.4" radius="2.5" height="0.1" color="while"material="opacity: 0.5"></a-cylinder>
+      </a-entity>
+
+      <!--  Table earth -->
+      <a-cylinder position="-24 0.513 -12" radius="2" height="0.5" src=" ./img/go.jpg" scale="1 1 1"></a-cylinder>
+      <a-cylinder position="-24 1.012 -12" radius="1.5" height="0.5" src=" ./img/go.jpg" scale="1 1 1"></a-cylinder>
+      <a-cylinder position="-24 4.5 -12" radius="1.5" height="0.5" src=" ./img/go.jpg" scale="1 1 1"></a-cylinder>
+      <a-cylinder position="-24 1.511 -12" radius="1" height="0.5" src=" ./img/go.jpg" scale="1 1 1"></a-cylinder>
+      <a-cylinder position="-24 3.104 -12" radius="0.5" height="2.5" src=" ./img/go.jpg" scale="1 1 1"></a-cylinder>
+
+      <a-entity id="earth" gltf-model="./model/earth/scene.gltf"  position="-24 6.042 -12" rotation="0 90 0" id="door" class="intersectable" scale="0.002 0.002 0.002"  animation="property: rotation; dur: 15000; from: 0 0 0; to: 0 360 0; easing: linear; loop: true;"></a-entity>
+
+  
+      <a-entity id="sofa" gltf-model="./model/reddress/scene.gltf" position="17.88 0.282 8.945" rotation="0 90 0" scale="0.055 0.055 0.055"></a-entity>
+      <a-entity id="dress" gltf-model="./model/dress/scene.gltf" position="28 0.56 -3.275"  scale="0.005 0.005 0.005"></a-entity>
+      <a-entity id="plant" gltf-model="./model/plant/scene.gltf" position="-52.9 6.076 15.607" rotation="0 0 0" scale="0.3 0.3 0.3"></a-entity>
+      <a-entity id="plat1" gltf-model="./model/plant1/scene.gltf" position="-52.9 5.142 17.507" rotation="0 0 0" scale="2 2 2"></a-entity>
+      <a-entity id="flower" gltf-model="./model/flower/scene.gltf" position="32.92 0.527 82.633" rotation="0 0 0" scale="0.05 0.05 0.05"></a-entity>
+      <a-entity id="flower" gltf-model="./model/flower/scene.gltf" position="9.252 0.527 82.843" rotation="0 0 0" scale="0.05 0.05 0.05"></a-entity>
+      <a-entity id="flower" gltf-model="./model/flower/scene.gltf" position="-2.53 0.283 82.052" rotation="0 0 0" scale="0.05 0.05 0.05"></a-entity>
+
+
+      <!-- raof  -->
+      <a-box position="-21 6.5 77.88" rotation="0 0 90" depth="3" width="10" height="3"   color="while"></a-box>
+      <a-box position="-39.6 6.5 77.88" rotation="0 0 90" depth="3" width="10" height="3"   color="while"></a-box>
+      <a-box position="-58 6.5 77.88" rotation="0 0 90" depth="3" width="10" height="3"   color="while"></a-box>
+      <a-box position="-76.3 6.5 77.88" rotation="0 0 90" depth="3" width="10" height="3"   color="while"></a-box>
+      <a-box position="-76.3 6.5 59.34" rotation="0 0 90" depth="3" width="10" height="3"   color="while"></a-box>
+      <a-box position="-76.3 6.5 41.06" rotation="0 0 90" depth="3" width="10" height="3"   color="while"></a-box>
+      <a-box position="-2.38 7.856 77.88" rotation="0 0 90" depth="3" width="16" height="3"   color="while"></a-box>
+      <a-box position="9.529 7.856 77.88" rotation="0 0 90" depth="4" width="16" height="4"   color="while"></a-box>
+      <a-box position="33.91 7.856 77.88" rotation="0 0 90" depth="4" width="16" height="4"   color="while"></a-box>
+      <a-box position="33.91 6.5 59.34" rotation="0 0 90" depth="3" width="10" height="3"   color="while"></a-box>
+      <a-box position="33.91 6.5 41.06" rotation="0 0 90" depth="3" width="10" height="3"   color="while"></a-box>
+
+      <a-box position="-21 0.818 77.88" rotation="0 0 90" depth="4" width="1" height="4"   color="while"></a-box>
+      <a-box position="-39.6 0.818 77.88" rotation="0 0 90" depth="4" width="1" height="4"   color="while"></a-box>
+      <a-box position="-58 0.818 77.88" rotation="0 0 90" depth="4" width="1" height="4"   color="while"></a-box>
+      <a-box position="-76.3 0.818 77.88" rotation="0 0 90" depth="4" width="1" height="4"   color="while"></a-box>
+      <a-box position="-76.3 0.818 41.06" rotation="0 0 90" depth="4" width="1" height="4"   color="while"></a-box>
+      <a-box position="33.91 0.818 41.06" rotation="0 0 90" depth="4" width="1" height="4"   color="while"></a-box>
+
+
+
+
+      <a-box position="-30.3 6.5 77.88" rotation="0 0 90" depth="1" width="10" height="15" material="opacity: 0.5"  color="pink"></a-box>
+      <a-box position="-11.8 6.5 77.88" rotation="0 0 90" depth="1" width="10" height="15" material="opacity: 0.5"  color="pink"></a-box>
+      <a-box position="-48.7 6.5 77.88" rotation="0 0 90" depth="1" width="10" height="15" material="opacity: 0.5"  color="pink"></a-box>
+      <a-box position="-67.2 6.5 77.88" rotation="0 0 90" depth="1" width="10" height="15" material="opacity: 0.5"  color="pink"></a-box>
+      <a-box position="-76.3 6.5 68.51" rotation="0 90 90" depth="1" width="10" height="15" material="opacity: 0.5"  color="pink"></a-box>
+      <a-box position="-76.3 6.5 50.21" rotation="0 90 90" depth="1" width="10" height="15" material="opacity: 0.5"  color="pink"></a-box>
+      <a-box position="-76.3 6.5 35.36" rotation="0 90 90" depth="1" width="10" height="8" material="opacity: 0.5"  color="pink"></a-box>
+      <a-box position="33.91 6.5 68.51" rotation="0 90 90" depth="1" width="10" height="15" material="opacity: 0.5"  color="pink"></a-box>
+      <a-box position="33.91 6.5 50.21" rotation="0 90 90" depth="1" width="10" height="15" material="opacity: 0.5"  color="pink"></a-box>
+      <a-box position="33.91 6.5 35.36" rotation="0 90 90" depth="1" width="10" height="8" material="opacity: 0.5"  color="pink"></a-box>
+
+
+      <a-entity id="lightSwitch" gltf-model="./model/lamp/scene.gltf" position="-21 11.51 77.88" rotation="0 0 0" scale="0.075 0.075 0.075"  class="intersectable" switch-light="" shadow=""></a-entity>
+      <a-entity id="light" light="type: point; decay: 0.5; distance: 70; color: #fff700; intensity: 0" position="0.77534 18.86631 1.56202" rotation="" scale="10 10 10"></a-entity>
+      </a-entity>
+
+
+
+      <a-entity id="flower2" gltf-model="./model/flower2/scene.gltf" position="-5.18 16.65 77.24" rotation="0 0 0" scale="2 2 2"></a-entity>
+      <a-entity id="flower2" gltf-model="./model/flower2/scene.gltf" position="-0.18 16.65 77.24" rotation="0 0 0" scale="2 2 2"></a-entity>
+      <a-entity id="flower2" gltf-model="./model/flower2/scene.gltf" position="5.18 16.65 77.24" rotation="0 0 0" scale="2 2 2"></a-entity>
+      <a-entity id="flower2" gltf-model="./model/flower2/scene.gltf" position="10.18 16.65 77.24" rotation="0 0 0" scale="2 2 2"></a-entity>
+      <a-entity id="flower2" gltf-model="./model/flower2/scene.gltf" position="15.18 16.65 77.24" rotation="0 0 0" scale="2 2 2"></a-entity>
+      <a-entity id="flower2" gltf-model="./model/flower2/scene.gltf" position="20.18 16.65 77.24" rotation="0 0 0" scale="2 2 2"></a-entity>
+      <a-entity id="flower2" gltf-model="./model/flower2/scene.gltf" position="25.18 16.65 77.24" rotation="0 0 0" scale="2 2 2"></a-entity>
+      <a-entity id="flower2" gltf-model="./model/flower2/scene.gltf" position="30.18 16.65 77.24" rotation="0 0 0" scale="2 2 2"></a-entity>
+
+      <!-- cửa chính  -->
+      <a-box position="31.31 7.643 79.64" rotation="0 0 90" depth="0.5" width="16" height="0.5"   color="black"></a-box>
+      <a-box position="26.43 7.643 79.64" rotation="0 0 90" depth="0.5" width="16" height="0.5"   color="black"></a-box>
+      <a-box position="27.05 7.643 79.64" rotation="0 0 90" depth="0.5" width="16" height="0.5"   color="black"></a-box>
+      <a-box position="21.42 7.643 79.64" rotation="0 0 90" depth="0.5" width="16" height="0.5"   color="black"></a-box>
+      <a-box position="22.01 7.643 79.64" rotation="0 0 90" depth="0.5" width="16" height="0.5"   color="black"></a-box>
+      <a-box position="16.34 7.643 79.64" rotation="0 0 90" depth="0.5" width="16" height="0.5"   color="black"></a-box>
+      <a-box position="16.96 7.643 79.64" rotation="0 0 90" depth="0.5" width="16" height="0.5"   color="black"></a-box>
+      <a-box position="11.79 7.643 79.64" rotation="0 0 90" depth="0.5" width="16" height="0.5"   color="black"></a-box>
+
+      <a-box position="21.69 15.46 79.64" rotation="90 0 0 " depth="0.7" width="20" height="0.5"   color="black"></a-box>
+      <a-box position="21.69 -0.14 79.64" rotation="90 0 0 " depth="0.5" width="20" height="0.5"   color="black"></a-box>
+
+      <script>
+        var scene = document.querySelector('a-scene');
+        var positions = ['29.01', '24.16', '19.22', '14.09'];
+        var numOfBoxes = 15;
+      
+        positions.forEach((pos) => {
+          for (var i = 0; i < numOfBoxes; i++) {
+            var entity = document.createElement('a-box');
+            entity.setAttribute('position', `${pos} ${i + 0.713} 79.64`);
+            entity.setAttribute('rotation', '90 0 0');
+            entity.setAttribute('depth', '0.5');
+            entity.setAttribute('width', '4');
+            entity.setAttribute('height', '0.5');
+            entity.setAttribute('color', 'black');
+            scene.appendChild(entity);
+          }
+        });
+      </script>
+
+
+      <!-- cửa phụ  -->
+      <a-box position="-0.42 7.643 79.64" rotation="0 0 90" depth="0.5" width="16" height="0.5"   color="black"></a-box>
+      <a-box position="7.09 7.643 79.64" rotation="0 0 90" depth="0.5" width="16" height="0.5"   color="black"></a-box>
+
+      <a-box position="3.36 15.46 79.64" rotation="90 0 0 " depth="0.7" width="8" height="0.5"   color="black"></a-box>
+      <a-box position="3.36 -0.14 79.64" rotation="90 0 0 " depth="0.5" width="8" height="0.5"   color="black"></a-box>
+
+      <script>
+        var scene = document.querySelector('a-scene');
+        var startPositionY = 0.713;
+        var numBoxes = 15;
+        var spacing = 1;
+      
+        for (var i = 0; i < numBoxes; i++) {
+          var positionY = startPositionY + (i * spacing);
+          var box = document.createElement('a-box');
+          box.setAttribute('position', '3.233 ' + positionY + ' 79.64');
+          box.setAttribute('rotation', '90 0 0');
+          box.setAttribute('depth', '0.5');
+          box.setAttribute('width', '7.5');
+          box.setAttribute('height', '0.5');
+          box.setAttribute('color', 'black');
+          scene.appendChild(box);
+        }
+      </script>
+
+      <a-box position="16.01 17.04 77.88" rotation="90 0 0 " depth="2.27" width="40" height="4"   color="while"></a-box>
+      <!-- -->
+      <a-box position=" 0.6 5.669 -18.3" width="3" height="9" depth="1" color="white"></a-box>
+      <a-box position=" -9.79 5.669 -18.3" width="3" height="9" depth="1" color="#white"></a-box>
+      <a-box position=" -8.79 4.041 -17.3" width="3" height="7" depth="1" color="#97FFFF"></a-box>
+      <a-box position=" -0.91 4.041 -17.3" width="3" height="7" depth="1" color="#97FFFF"></a-box> 
+
+      <a-box position="-20 3.27 59.935"  width="10" height="0.5" depth="15"  material="shader: flat; " src=" ./img/go2.jpg " repeat="1 3" ></a-box>
+      <a-box position="-20 1.507 68.206"  width="10" height="1" depth="2"  material="shader: flat; " src=" ./img/go2.jpg "  ></a-box>
+      <a-box position="-20 1.507 51.802"  width="10" height="1" depth="2"  material="shader: flat; " src=" ./img/go2.jpg "  ></a-box>
+      <a-box position="-14.8 5.8 53.622"  width="1" height="10" depth="1"  material="shader: flat; " src=" ./img/go2.jpg "  ></a-box>
+      <a-box position="-25.6 5.8 53.622"  width="1" height="10" depth="1"  material="shader: flat; " src=" ./img/go2.jpg "  ></a-box>
+      <a-box position="-25.6 5.8 66.547"  width="1" height="10" depth="1"  material="shader: flat; " src=" ./img/go2.jpg "  ></a-box>
+      <a-box position="-14.8 5.8 66.547"  width="1" height="10" depth="1"  material="shader: flat; " src=" ./img/go2.jpg "  ></a-box>
+
+      <a-plane static-body="" geometry="depth: 8.9; height: 9; width:5" position="-20.8 18.87 31.66"  material="roughness: 1;" src=" ./img/wd.png"  ></a-plane>
+      <a-plane static-body="" geometry="depth: 8.9; height: 14; width:5.102" position="21.77 21.09 31.66"  material="roughness: 1;" src=" ./img/dcor.png"  ></a-plane>
+      <a-plane static-body="" geometry="depth: 8.9; height: 7; width:6" position="-10.8 8.27 31.66"  material="roughness: 1;" src=" ./img/wd.png"  ></a-plane>
+      <a-plane static-body="" geometry="depth: 8.9; height: 7; width:6" position="-69.1 8.27 31.66"  material="roughness: 1;" src=" ./img/wd.png"  ></a-plane>
+      <a-plane static-body="" geometry="depth: 8.9; height: 7; width:6" position="-40.3 8.27 31.66"  material="roughness: 1;" src=" ./img/wd.png"  ></a-plane>
+
+      <a-box static-body="" geometry="depth: 0.2; height: 7.5; width:3" position="38.71 17.53 6.817" rotation="0 90 0"  material="roughness: 1;" src=" ./img/tranh1.png"  ></a-box>
+      <a-box static-body="" geometry="depth: 0.2; height: 7.5; width:3" position="38.71 17.53 10.131" rotation="0 90 0"  material="roughness: 1;" src=" ./img/tranh2.png"  ></a-box>
+      <a-box static-body="" geometry="depth: 0.2; height: 7.5; width:3" position="38.71 17.53 13.412" rotation="0 90 0"  material="roughness: 1;" src=" ./img/tranh3.png"  ></a-box>
+      <a-box static-body="" geometry="depth: 0.2; height: 7.5; width:3" position="38.71 17.53 16.77" rotation="0 90 0"  material="roughness: 1;" src=" ./img/tranh4.png"  ></a-box>
+      <a-box static-body="" geometry="depth: 0.2; height: 7.5; width:3" position="38.71 17.53 20.16" rotation="0 90 0"  material="roughness: 1;" src=" ./img/tranh5.png"  ></a-box>
+
+      <a-plane position="-20 0.684 80.62" rotation="-90 0 0" width="110" height="10" material="shader: flat; " src=" ./img/co.jpg " repeat="22 2" ></a-plane>
+      <a-plane position="-20 0.684 43.166" rotation="-90 0 0" width="110" height="25" material="shader: flat; " src=" ./img/co.jpg " repeat="22 5" ></a-plane>
+      <a-plane position="-20 1.01 70.671" rotation="-90 0 0" width="110" height="10" material="shader: flat; " src=" ./img/san.png "  ></a-plane>
+      <a-box position="-20 1.477 64.735" width="120" height="2" depth="1.5" src=" ./img/gachda.jpg" repeat="24 1"></a-box>
+      <a-box position="-20 1.477 56.105" width="120" height="2" depth="1.5" src=" ./img/gachda.jpg" repeat="24 1"></a-box>
+      <a-box geometry="depth: 7.5; height: 0.1; width:120 " position="-20 1.477 60.735" material="roughness: 1; src: ./vid/vidnuoc2.mp4; opacity: 0.5" autoplay loop="true" scale="1 1 1"></a-box>
+
+      <script>
+        // Định nghĩa các biến cần thiết
+        var positionsX = [27.337, 17.337, 7.337, -2.66, -12.6, -22.3, -32.5, -42.5, -52.5, -62.5, -72.5, -67.5, -57.5, -47.5, -37.5, -27.5, -17.5, -7.5, 2.5, 12.5, 12.5, 27.5, 17.5, 7.5, -2.5, -12.5, -22.5, -32.5, -42.5, -52.5, -62.5, 22.5, 12.5, 2.5, -7.5, -17.5, -27.5, -37.5, -47.5, -57.5, -67.5];
+        var positionsZ = [53.250, 53.250, 53.250, 53.250, 53.250, 53.250, 53.250, 53.250, 53.250, 53.250, 53.250, 48.333, 48.333, 48.333, 48.333, 48.333, 48.333, 48.333, 48.333, 48.333, 48.333, 43.333, 43.333, 43.333, 43.333, 43.333, 43.333, 43.333, 43.333, 43.333, 43.333, 48.333, 48.333, 48.333, 48.333, 48.333, 48.333, 48.333, 48.333, 48.333, 48.333, 48.333];
+      
+        var scene = document.querySelector('a-scene');
+      
+        // Tạo các hộp
+        for (var i = 0; i < positionsX.length; i++) {
+          var box = document.createElement('a-box');
+          box.setAttribute('position', positionsX[i] + ' 0.813 ' + positionsZ[i]);
+          box.setAttribute('width', '5');
+          box.setAttribute('height', '0.1');
+          box.setAttribute('depth', '5');
+          box.setAttribute('src', './img/gach2.jpg');
+          scene.appendChild(box);
+        }
+      </script>
+
+    <a-entity id="car" gltf-model="./model/car/scene.gltf" position="-5.93 2.291 -9.186" rotation="0 -90 0" scale="700 700 700"></a-entity>
+    <a-entity id="bed" gltf-model="./model/bed/scene.gltf" position="-70.2 0.0469 23.628" rotation="0 90 0" scale="0.07 0.07 0.07"></a-entity>
+      
+
+
+       
+
+    <!-- Sounds -->
+      <audio id="phoneSound" src="./vid/soun.mp4"></audio>
+      <script>
+         function phoneRing()
+				 {
+					 var text = document.querySelector("#phoneText");
+					 text.setAttribute('visible', 'false');
+					 var audio = document.querySelector("#phoneSound");
+					 audio.play();
+				 }
+      </script>
+
+   <!--Phone -->
+    <a-entity  onclick="phoneRing()">
+     <a-text id="phoneText" value="phone sound" align="center" color="#FFF" position="-77.5 4.534 14.119" scale="1.5 1.5 1.5"></a-text>
+     <a-entity id="phone" gltf-model="./model/phone/scene.gltf" position="-77.5 2.534 14.119" rotation="0 270 0" scale="0.004 0.004 0.004"></a-entity>
+    </a-entity>
+
+    <a-plane static-body="" geometry="depth: 8.9; height: 8.7; width:5.34" position="25.38 4.835 -17.17"  material="roughness: 1;" src=" ./img/tugiay.png"  ></a-plane>
+    <a-box static-body="" geometry="depth: 8.9; height: 5.34; width:2" position="25.38 4.855 -18.30" rotation="90 90 0" material="roughness: 1;" color="white" ></a-box>
+
+    <a-plane static-body="" geometry="depth: 8.86; height: 8.86; width:5.74" position="32.13 4.835 -17.17"  material="roughness: 1;" src=" ./img/tuquao.png"  ></a-plane>
+    <a-box static-body="" geometry="depth: 8.89; height: 5.74; width:2" position="32.13 4.855 -18.30" rotation="90 90 0" material="roughness: 1;" color="black" ></a-box>
+    
+    <a-plane static-body="" geometry="depth: 8.86; height: 8.86; width:5.74" position="36.51 4.855 -10.33" rotation="0 -90 0 material="roughness: 1; src=" ./img/tuqao.png"  ></a-plane>
+    <a-box static-body="" geometry="depth: 8.89; height: 5.74; width:2" position="37.76 4.855 -10.33" rotation="90 0 0" material="roughness: 1;" color="black" ></a-box>
+
+    <a-plane static-body="" geometry="depth: 8.86; height: 10.86; width:10.59" position="-34.1 6.32 27.29" rotation="180 0 180" material="roughness: 1;" src=" ./img/turuou.png"  ></a-plane>
+    <a-box static-body="" geometry="depth: 10.96; height: 10.59; width:2" position="-34.1 6.32 28.42" rotation="90 90 0" material="roughness: 1;" color="black" ></a-box>
+
+
+<a-box id="decor" src="./img/dec.png" position="-78.1 9.419 23.59" width="8.7" height="4.85" depth="0.2" rotation="0 90 0"></a-box>
+ 
+
+
+<!-- Flat Screen TV -->
+<a-entity position="-24.7 1 -10">
+  <a-box position="62.68 5.354 22.706" height="5" width="0.3" depth="10" color="#292929" material="" geometry=""></a-box>
+  <a-box id="tvScreen" onclick="tvClick()" position="62.34 5.338 22.681" rotation="0 90 0" height="5" width="10" depth="0.1" color="black" material="side: double"; src= "./vid/tv.mp4"; shader="flat" geometry=""></a-box>
+  <a-text id="tvText" value="Turn on TV" align="center" color="#FFF" position="62.44 7.338 22.681" scale="3 3 3" rotation="0 90 0" text="" visible="false"></a-text>
+  </a-entity>
+ 
+<!--tang3 -->
+<a-box position="20.39 44.72 17.753" rotation="0 0 90" depth="0.7" width="8" height="40" shadow="" material="side:double"  color="pink"></a-box>
+<a-box position="0.785 44.65 -2.633" rotation="0 90 90" depth="0.7" width="8" height="40" shadow="" material="side:double"  color="pink"></a-box>
+<a-box position="40.61 38.81 -1.72" rotation="0 90 90" depth="0.7" width="20" height="40" shadow="" material="side:double"  color="pink"></a-box>
+<a-box position="20.91 38.72 -22.27" rotation="0 0 90" depth="0.7" width="20" height="40" shadow="" material="side:double"  color="pink"></a-box>
+
+<a-box position="0.892 34.76 -18.56" rotation="0 90 90" depth="1" width="12" height="8" material="opacity: 0.2"  color="white"></a-box>
+<a-box position="0.892 34.76 -10.20" rotation="0 90 90" depth="1" width="12" height="7.5" material="opacity: 0.2"  color="white"></a-box>
+<a-box position="0.892 34.76 -2.232" rotation="0 90 90" depth="1" width="12" height="7.5" material="opacity: 0.2"  color="white"></a-box>
+<a-box position="0.892 34.76 5.83" rotation="0 90 90" depth="1" width="12" height="7.5" material="opacity: 0.2"  color="white"></a-box>
+<a-box position="0.892 34.76 13.69" rotation="0 90 90" depth="1" width="12" height="7" material="opacity: 0.2"  color="white"></a-box>
+<a-box position="36.46 34.76 17.674" rotation="0 0 90" depth="1" width="12" height="7.5" material="opacity: 0.2"  color="white"></a-box>
+<a-box position="28.32 34.76 17.674" rotation="0 0 90" depth="1" width="12" height="7.5" material="opacity: 0.2"  color="white"></a-box>
+<a-box position="20.13 34.76 17.674" rotation="0 0 90" depth="1" width="12" height="7.5" material="opacity: 0.2"  color="white"></a-box>
+<a-box position="4.404 34.76 17.674" rotation="0 0 90" depth="1" width="12" height="8" material="opacity: 0.2"  color="white"></a-box>
+
+<a-box position="0.892 34.76 -6.25" rotation="0 90 90" depth="1" width="12" height="0.3"   color="black"></a-box>
+<a-box position="0.892 34.76 9.936" rotation="0 90 90" depth="1" width="12" height="0.39"   color="black"></a-box>
+<a-box position="0.892 34.76 1.787" rotation="0 90 90" depth="1" width="12" height="0.38"   color="black"></a-box>
+<a-box position="0.892 34.76 -14.26" rotation="0 90 90" depth="1" width="12" height="0.4"   color="black"></a-box>
+<a-box position="8.579 34.76 17.674" rotation="0 0 90" depth="1" width="12" height="0.4"   color="black"></a-box>
+<a-box position="16.11 34.76 17.674" rotation="0 0 90" depth="1" width="12" height="0.4"   color="black"></a-box>
+<a-box position="24.23 34.76 17.674" rotation="0 0 90" depth="1" width="12" height="0.51"   color="black"></a-box>
+<a-box position="32.4 34.76 17.674" rotation="0 0 90" depth="1" width="12" height="0.51"   color="black"></a-box>
+
+<a-box position="5.213 31.46 33.425" rotation="0 0 90" depth="0.5" width="5" height="71" material="opacity: 0.5"  color="white"></a-box>
+<a-box position="-14.3 31.46 -23" rotation="0 0 90" depth="0.5" width="5" height="30" material="opacity: 0.5"  color="white"></a-box>
+<a-box position="-30.5 31.46 10.819" rotation="0 90 90" depth="0.5" width="5" height="45" material="opacity: 0.5"  color="white"></a-box>
+<a-box position="41.16 31.46 25.922" rotation="0 90 90" depth="0.5" width="5" height="15" material="opacity: 0.5"  color="white"></a-box>
+
+<a-box position="41.19 31.46 33.785" rotation="0 0 90" depth="0.5" width="5" height="0.5"   color="black"></a-box>
+<a-box position="-30.5 31.46 33.785" rotation="0 0 90" depth="0.5" width="5" height="0.5"   color="black"></a-box>
+<a-box position="-30.5 31.46 -12.07" rotation="0 0 90" depth="0.5" width="5" height="0.5"   color="black"></a-box>
+<a-box position="-29.5 31.46 -23.03" rotation="0 0 90" depth="0.5" width="5" height="0.5"   color="black"></a-box>
+
+<a-cylinder position="-11.1 31.59 27.316" radius="4" height="4" src=" ./img/go2.jpg" scale="1 1 1"></a-cylinder>
+<a-cylinder position="-15.8 30.07 18.566" radius="2" height="2" src=" ./img/go2.jpg" scale="1 1 1"></a-cylinder>
+<a-cylinder position="-18.9 30.07 28.83" radius="2" height="2" src=" ./img/go2.jpg" scale="1 1 1"></a-cylinder>
+<a-cylinder position="-2.71 30.07 27.688" radius="2" height="2" src=" ./img/go2.jpg" scale="1 1 1"></a-cylinder>
+
+<a-box id="floor3" src="./img/go2.jpg" position="20.77 29.19 -2.239" width="39.24" height="39.570" depth="0.2" rotation="90 0 0"></a-box>
+<a-entity id="bed2" gltf-model="./model/bed2/scene.gltf" position="29.69 30.03 -10.52"  scale="15 10 15"></a-entity>
+<a-box position="10.06 34.37 -8.964" rotation="90 0 90" depth="0.7" width="5" height="12" shadow="" material="side:double"  color="white"></a-box>
+<a-box position="4.484 32.17 -8.964" rotation="0 90 0" depth="0.7" width="5" height="5" shadow="" material="side:double"  color="white"></a-box>
+<a-box position="15.68 32.17 -8.964" rotation="0 90 0" depth="0.7" width="5" height="5" shadow="" material="side:double"  color="white"></a-box>
+
+<a-plane static-body="" geometry="depth: 8.9; height: 11.91; width:9.105" position="10.25 35.68 -18.9"  material="roughness: 1;" src=" ./img/tusach.png"  ></a-plane>
+<a-box static-body="" geometry="depth: 11.91; height: 9.105; width:2" position="10.25 35.68 -20.06" rotation="90 90 0" material="roughness: 1;" color="white" ></a-box>
+  
+<a-entity id="sakura" gltf-model="./model/sakura/scene.gltf" position="-26 29.74 27.474" rotation="0 0 0" scale="0.07 0.07 0.07"></a-entity>
+<a-entity id="plant2" gltf-model="./model/plant2/scene.gltf" position="5.126 35.89 13.916" rotation="0 0 0" scale="5 5 5"></a-entity>
+<a-entity id="plant3" gltf-model="./model/plant3/scene.gltf" position="29.63 29.8 14.68" rotation="0 0 0" scale="20 20 20"></a-entity>
+<a-entity id="sofa2" gltf-model="./model/sofa2/scene.gltf" position="36.62 29.54 7.343" rotation="0 -90 0" scale="0.15 0.15 0.15"></a-entity>
+<a-entity id="chair" gltf-model="./model/chair/scene.gltf" position="13.46 29.86 -12.88" rotation="0 180 0" scale="5 5 5"></a-entity>
+<a-entity id="keyboard" gltf-model="./model/keyboard/scene.gltf" position="12.03 34.74 -9.935" rotation="0 -90 0" ></a-entity>
+<a-entity id="mouse" gltf-model="./model/mouse/scene.gltf" position="7.318 34.77 -9.943" rotation="0 180 0" scale="10 10 10"></a-entity>
+
+<!--PC -->
+<a-box position="9.215 37.16 -8.002" rotation="90 -5 0" depth="3" width="4" height="0.2"   color="black" ></a-box>
+<a-box position="13.22 37.16 -8.002" rotation="90 5 0" depth="3" width="4" height="0.2"   color="black" ></a-box>
+<a-box position="13.22 35.41 -7.894" rotation="90 0 0" depth="0.5" width="0.5" height="0.2"   color="black" ></a-box>
+<a-box position="9.215 35.41 -7.894" rotation="90 0 0" depth="0.5" width="0.5" height="0.2"   color="black" ></a-box>
+<a-box position="9.215 35 -7.894"  depth="0.7" width="1.2" height="0.3"   color="black" ></a-box>
+<a-box position="13.22 35 -7.894"  depth="0.7" width="1.2" height="0.3"   color="black" ></a-box>
+
+<a-cone position="8.129 38.31 -10.28" rotation="30 -90 0"  width="1.2" height="0.61" radiusTOP="0.39" radiusBottom="0.61" color="yellow" ></a-cone>
+<a-cylinder position="5.338 37.57 -10.27" rotation="0 90 0" radius="0.09" height="4" color="black" ></a-cylinder>
+<a-cylinder position="6.369 39.49 -10.27" rotation="90 90 0"  radius="0.09" height="2.2" color="black" ></a-cylinder>
+<a-cylinder position="7.692 39.02 -10.27" rotation="-30 90 0"  radius="0.09" height="1.2" color="black" ></a-cylinder>
+<a-cylinder position="5.338 35.81 -10.27" rotation="0 90 0" radius="0.5" height="2" color="black" ></a-cylinder>
+
+<a-box id="rug" src="./img/rug.png" position="13.38 29.52 -2.237" width="25" height="19" depth="0.1" rotation="90 0 90"></a-box>
+<a-plane id="pc1" src="./img/pc1.png" position="9.215 37.16 -8.174" rotation="0 175 0" depth="0.2" width="4" height="3"   ></a-plane>
+<a-plane id="pc2" src="./img/pc2.png"  position="13.22 37.16 -8.174" rotation="0 185 0" depth="0.2" width="4" height="3"   ></a-plane>
+
+<a-box position="19.05 49.32" rotation="90 0 90" depth="1" width="50" height="50"   color="white"></a-box>
+
+<a-box position="-28.9 28.31 -21.76" rotation="90 0 90" depth="1" width="5.5" height="6"   color="white"></a-box>
+<a-box position="-28.9 26.31 -18.18" rotation="90 0 90" depth="1" width="2" height="6"   color="white"></a-box> 
+<a-box position="-28.9 24.31 -16.18" rotation="90 0 90" depth="1" width="2" height="6"   color="white"></a-box> 
+<a-box position="-28.9 22.31 -14.18" rotation="90 0 90" depth="1" width="2" height="6"   color="white"></a-box> 
+<a-box position="-28.9 20.31 -12.18" rotation="90 0 90" depth="1" width="2" height="6"   color="white"></a-box> 
+<a-box position="-28.9 18.31 -10.18" rotation="90 0 90" depth="1" width="2" height="6"   color="white"></a-box> 
+<a-box position="-28.9 16.31 -8.18" rotation="90 0 90" depth="1" width="2" height="6"   color="white"></a-box> 
+<a-box position="-33 17.67 -6.124" depth="1" width="2" height="6"   color="white"></a-box> 
+
+<!-- Buttons for moving up/down stairs -->
+<a-box id="upStairs" color="black" geometry="width: 0.28; height: 0.6; depth: 0.6" position="-19.441 4.691 10.225" class="intersectable" material="" rotation="0 88.627 0"></a-box>
+<a-box id="downStairs" color="black" geometry="depth: 0.6; height: 0.6; width: 0.28" position="-19.829 18.171 29.493" class="intersectable" material="" rotation="0 -90.2935648502567 0" scale="0.75675 0.75651 0.50303"></a-box>
+
+<script>
+  var cam = document.querySelector('#cam');
+  var upStairsBtn = document.querySelector('#upStairs');
+  var downStairsBtn = document.querySelector('#downStairs');
+
+  upStairsBtn.addEventListener('click', function () {
+    cam.setAttribute('position', {x: -19.829, y: 18.171, z: 29.493});
+    cam.setAttribute('rotation', {x: 0, y: 0, z: 0});
+  });
+
+  downStairsBtn.addEventListener('click', function () {
+    cam.setAttribute('position', {x: -19.441, y: 4.691, z: 10.225});
+    cam.setAttribute('rotation', {x: 0, y: 0, z: 0});
+  });
+</script>
+
+<!-- Buttons for moving up/down poor -->
+<a-box id="upPoor" color="black" geometry="width: 0.28; height: 0.6; depth: 0.6" position="-34 17.28 15.556" class="intersectable" material="" rotation="0 88.627 0"></a-box>
+<a-box id="downPoor" color="black" geometry="depth: 0.6; height: 0.6; width: 0.28" position="-37.7 24.3 14.451" class="intersectable" material="" rotation="0 -90.2935648502567 0" scale="0.75675 0.75651 0.50303"></a-box>
+
+<script>
+  var upPoorBtn = document.querySelector('#upPoor');
+  var downPoorBtn = document.querySelector('#downPoor');
+
+  upPoorBtn.addEventListener('click', function () {
+    cam.setAttribute('position', {x: -37.7, y: 24.3, z: 14.451});
+    cam.setAttribute('rotation', {x: 0, y: 0, z: 0});
+  });
+
+  downPoorBtn.addEventListener('click', function () {
+    cam.setAttribute('position', {x: -34, y: 17.28, z: 15.556});
+    cam.setAttribute('rotation', {x: 0, y: 0, z: 0});
+  });
+</script>
+
+<!-- Buttons for moving up/down f2-3 -->
+<a-box id="upf2-3" color="black" geometry="width: 0.28; height: 0.6; depth: 0.6" position="-33.1 18.18 -5.395" class="intersectable" material="" rotation="0 88.627 0"></a-box>
+<a-box id="downf2-3" color="black" geometry="depth: 0.6; height: 0.6; width: 0.28" position="-28.9 33.82 -22.52" class="intersectable" material="" rotation="0 -90.2935648502567 0" scale="0.75675 0.75651 0.50303"></a-box>
+
+<script>
+  var upf2_3Btn = document.querySelector('#upf2-3');
+  var downf2_3Btn = document.querySelector('#downf2-3');
+
+  upf2_3Btn.addEventListener('click', function () {
+    cam.setAttribute('position', {x: -28.9, y: 36.82, z: -22.52});
+    cam.setAttribute('rotation', {x: 0, y: 0, z: 0});
+  });
+
+  downf2_3Btn.addEventListener('click', function () {
+    cam.setAttribute('position', {x: -33.1, y: 18.18, z: -5.395});
+    cam.setAttribute('rotation', {x: 0, y: 0, z: 0});
+  });
+</script>
+
+<!-- Door 1 -->
+<a-box id="door1" position="18.45 5.517 29.852" src="./img/cua2.png" geometry="width: 4.07; height: 10.7; depth: 0.2"
+  animation__move="property: position; easing: easeInOutQuad; dur: 3000" move-box1 material geometry></a-box>
+
+<!-- Door 2 -->
+<a-box id="door2" position="22.55 5.517 29.852" src="./img/cua2.png" geometry="width: 4.07; height: 10.7; depth: 0.2"
+  animation__move="property: position; easing: easeInOutQuad; dur: 3000" move-box2 material geometry></a-box>
+
+<!-- Door 3 (Lift) -->
+<a-box id="door3" material="opacity: 0.2" color="white"
+  animation__move="property: position; to: 12.36 34.76 18.398; easing: easeInOutQuad; dur: 3000" 
+  move-box3 geometry="" depth="0.2" width="12" height="7" rotation="0 0 90"></a-box>
+  <script>
+    var box1El = document.getElementById('door1');
+    var box2El = document.getElementById('door2');
+    var box3El = document.getElementById('door3');
+  
+    var isBox1Moved = false;
+    var isBox2Moved = false;
+    var isBox3Moved = false;
+  
+    function checkMoveStatus() {
+      if (isBox1Moved && isBox2Moved && isBox3Moved) {
+        box1El.emit('moveBox1Back');
+        box2El.emit('moveBox2Back');
+        box3El.emit('moveBox3Back');
+      }
+    }
+  
+    box1El.addEventListener('click', function () {
+      if (!isBox1Moved) {
+        box1El.emit('moveBox1');
+        isBox1Moved = true;
+        checkMoveStatus();
+      } else {
+        box1El.emit('moveBox1Back');
+        isBox1Moved = false;
+      }
+    });
+  
+    box2El.addEventListener('click', function () {
+      if (!isBox2Moved) {
+        box2El.emit('moveBox2');
+        isBox2Moved = true;
+        checkMoveStatus();
+      } else {
+        box2El.emit('moveBox2Back');
+        isBox2Moved = false;
+      }
+    });
+  
+    box3El.addEventListener('click', function () {
+      if (!isBox3Moved) {
+        box3El.emit('moveBox3');
+        isBox3Moved = true;
+        checkMoveStatus();
+      } else {
+        box3El.emit('moveBox3Back');
+        isBox3Moved = false;
+      }
+    });
+  
+    AFRAME.registerComponent('move-box1', {
+      init: function () {
+        var el = this.el;
+        el.addEventListener('moveBox1', function () {
+          // Move door1 to the opposite direction
+          el.setAttribute('animation__move', 'to: 14.55 5.517 29.852');
+        });
+      },
+    });
+  
+    AFRAME.registerComponent('move-box1-back', {
+      init: function () {
+        var el = this.el;
+        el.addEventListener('moveBox1Back', function () {
+          // Move door1 back to its original position
+          el.setAttribute('animation__move', 'to: 18.45 5.517 29.852');
+        });
+      },
+    });
+  
+    AFRAME.registerComponent('move-box2', {
+      init: function () {
+        var el = this.el;
+        el.addEventListener('moveBox2', function () {
+          // Move door2 to the opposite direction
+          el.setAttribute('animation__move', 'to: 26.45 5.517 29.852');
+        });
+      },
+    });
+  
+    AFRAME.registerComponent('move-box2-back', {
+      init: function () {
+        var el = this.el;
+        el.addEventListener('moveBox2Back', function () {
+          // Move door2 back to its original position
+          el.setAttribute('animation__move', 'to: 22.55 5.517 29.852');
+        });
+      },
+    });
+  
+    AFRAME.registerComponent('move-box3', {
+      init: function () {
+        var el = this.el;
+        el.addEventListener('moveBox3', function () {
+          // Move door3 to a new position
+          el.setAttribute('animation__move', 'to: 5.676 34.76 18.398');
+        });
+      },
+    });
+  
+    AFRAME.registerComponent('move-box3-back', {
+      init: function () {
+        var el = this.el;
+        el.addEventListener('moveBox3Back', function () {
+          // Move door3 back to its original position
+          el.setAttribute('animation__move', 'to: 12.36 34.76 18.398');
+        });
+      },
+    });
+  </script>
+
+<!--Sunlight -->
+<a-entity light="type:point;intensity:0.6;castShadow:true" position="161.815 164.48 -169.155"></a-entity>
+<!-- Inside Ambient Light -->
+<a-entity id="insideLight" light="color:#BBB;type:ambient"></a-entity>
+  
+<a-sphere id="sphere" src=" ./img/go2.jpg" radius="0.5" height="0.0005" position="-14.8 53.67 33.26" rotation="0 90 0" class="intersectable"  animation="property: rotation; dur: 10000; speed:1; from: 0 0 0; to: 0 360 0; easing: linear; loop: true;"></a-entity>
+  <a-entity id="helicopter" gltf-model="./model/helicopter/scene.gltf" position="-52.9 7.795 16.807" rotation="0 0 0" scale="0.02 0.02 0.02"></a-entity>
+</a-sphere>
+    </a-scene>
+  </body>
+</html>
